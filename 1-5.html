@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+
+<html lang="ua-UK">
+<head>
+    <meta charset="utf-8" />
+    <title>Форма реєстрації</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            padding: 5%;
+        }
+
+        .form {
+            background-color: #764EEB;
+            width: 100%;
+        }
+
+        .container {
+            height: 600px;
+            width: 800px;
+            display: flex;
+            align-items: center;
+        }
+
+        h1 {
+            text-transform: uppercase;
+            font-family: 'Rubik Mono One', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <div class="container">
+            <header>
+                <div class="header-inner">
+                    <h1>Реєстрація акаунту</h1>
+                </div>
+            </header>
+            <form action="#" method="POST" target="_blank">
+                <!-- Атрибут action вказує, куди будуть відправлені дані після натискання кнопки "Відправити". У цьому прикладі, дані будуть відправлені на серверний скрипт process.php. -->
+                <!-- Атрибут method вказує метод, яким буде відправлено дані на сервер. GET передає дані через URL, POST передає дані через запит HTTP. Вибір методу залежить від конкретних потреб вашого додатку. -->
+                <!-- Атрибут target вказує, де відкривати результат обробки форми. У цьому прикладі, результат буде відкрито у новому вікні чи вкладці браузера (_blank). Цей атрибут не є обов'язковим і може бути використаний залежно від вашого дизайну. -->
+
+                <label for="first_name">Ім'я:</label>
+                <input type="text" id="first_name" name="first_name" required>
+                <!-- Тег <label> використовується для створення мітки для поля введення. Атрибут for пов'язує мітку з полем введення за допомогою ідентифікатора (id) поля. Атрибут required вказує, що це поле обов'язкове для заповнення. -->
+
+                <br>
+
+                <label for="last_name">Прізвище:</label>
+                <input type="text" id="last_name" name="last_name" required>
+
+                <br>
+
+                <label for="email">Адреса електронної пошти:</label>
+                <input type="email" id="email" name="email" required>
+                <!-- Тип "email" використовується для введення адреси електронної пошти і автоматично перевіряє формат введеного тексту. -->
+
+                <br>
+
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required>
+                <!-- Тип "password" використовується для введення паролю. Текст, введений у цьому полі, буде прихований. -->
+
+                <br>
+
+                <input type="submit" value="Відправити">
+                <!-- Тип "submit" створює кнопку "Відправити", яка буде використовуватися для відправки форми на сервер. Текст на кнопці задається атрибутом "value". -->
+            </form>
+        </div>
+    </div>
+</body>
+</html>

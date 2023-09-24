@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="ua-UK">
 <head>
@@ -7,28 +7,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500;600;700&family=Rubik+Mono+One&display=swap" rel="stylesheet">
     <style>
         body {
-            padding: 5%;
+            padding: 0;
+            margin: 0;
         }
 
         .form {
-            background-color: #764EEB;
             width: 100%;
+            display: flex;
+            justify-content: center;
         }
 
         .container {
-            height: 600px;
+            background-color: #764EEB;
+            height: 100vh;
             width: 800px;
+        }
+
+        header {
+            margin: 0;
+            padding: 0;
             display: flex;
-            align-items: center;
+            justify-content: center;
+        }
+
+        .header-inner {
+            margin: 100px 0;
         }
 
         h1 {
+            margin: 0;
+            padding: 0;
             text-transform: uppercase;
             font-family: 'Rubik Mono One', sans-serif;
         }
+
+        .reg {
+            width: auto;
+            height: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reg-inner {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            width: 440px;
+            padding: 20px;
+        }
+
+        input[type=text], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 500;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            background-color: black;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: 3px solid black;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 700;
+            transition: 0.25s;
+        }
+
+            input[type=submit]:hover, input[type=submit]:focus {
+                background-color: #764EEB;
+                color: black;
+            }
+
+            input[type=submit]:active {
+                background-color: black;
+                color: white;
+            }
     </style>
 </head>
 <body>
@@ -39,37 +103,45 @@
                     <h1>Реєстрація акаунту</h1>
                 </div>
             </header>
-            <form action="#" method="POST" target="_blank">
-                <!-- Атрибут action вказує, куди будуть відправлені дані після натискання кнопки "Відправити". У цьому прикладі, дані будуть відправлені на серверний скрипт process.php. -->
-                <!-- Атрибут method вказує метод, яким буде відправлено дані на сервер. GET передає дані через URL, POST передає дані через запит HTTP. Вибір методу залежить від конкретних потреб вашого додатку. -->
-                <!-- Атрибут target вказує, де відкривати результат обробки форми. У цьому прикладі, результат буде відкрито у новому вікні чи вкладці браузера (_blank). Цей атрибут не є обов'язковим і може бути використаний залежно від вашого дизайну. -->
+            <div class="reg">
+                <div class="reg-inner">
+                    <form action="#" method="POST" target="_blank">
+                        <!-- Атрибут action вказує, куди будуть відправлені дані після натискання кнопки "Відправити". -->
+                        <!-- Атрибут method вказує метод, яким буде відправлено дані на сервер. POST передає дані через запит HTTP. -->
+                        <!-- Атрибут target вказує, де відкривати результат обробки форми. Значення "_blank" буде відкривати результат у новому вікні чи вкладці браузера. -->
 
-                <label for="first_name">Ім'я:</label>
-                <input type="text" id="first_name" name="first_name" required>
-                <!-- Тег <label> використовується для створення мітки для поля введення. Атрибут for пов'язує мітку з полем введення за допомогою ідентифікатора (id) поля. Атрибут required вказує, що це поле обов'язкове для заповнення. -->
+                        <label for="name">Ім'я</label>
+                        <input type="text" id="name" name="name" placeholder="Ваше ім'я..">
+                        <!-- Тег <label> використовується для створення мітки для поля введення. Атрибут for пов'язує мітку з полем введення за допомогою ідентифікатора поля. -->
 
-                <br>
+                        <label for="surname">Прізвище</label>
+                        <input type="text" id="surnamename" name="surname" placeholder="Ваше прізвище..">
 
-                <label for="last_name">Прізвище:</label>
-                <input type="text" id="last_name" name="last_name" required>
+                        <label for="country">Країна</label>
+                        <select id="country" name="country">
+                            <option value="ua">Україна</option>
+                            <option value="us">США</option>
+                            <option value="jp">Японія</option>
+                            <option value="uk">Велика Британія</option>
+                            <option value="nd">Нідерланди</option>
+                        </select>
+                        <!-- <label> вказує на елемент <select> з ідентифікатором "country".  -->
+                        <!-- <select> - елемент для створення випадаючого списку. -->
+                        <!-- <option> визначає один варіант для вибору випадаючого списку. -->
 
-                <br>
+                        <label for="lname">Email</label>
+                        <input type="text" id="lname" name="lastname" placeholder="Адреса вашої електронної адреси..">
+                        <!-- Тип "email" використовується для введення адреси електронної пошти і автоматично перевіряє формат введеного тексту. -->
 
-                <label for="email">Адреса електронної пошти:</label>
-                <input type="email" id="email" name="email" required>
-                <!-- Тип "email" використовується для введення адреси електронної пошти і автоматично перевіряє формат введеного тексту. -->
+                        <label for="lname">Пароль</label>
+                        <input type="text" id="lname" name="lastname" placeholder="Ваш пароль..">
+                        <!-- Тип "password" використовується для введення паролю. -->
 
-                <br>
-
-                <label for="password">Пароль:</label>
-                <input type="password" id="password" name="password" required>
-                <!-- Тип "password" використовується для введення паролю. Текст, введений у цьому полі, буде прихований. -->
-
-                <br>
-
-                <input type="submit" value="Відправити">
-                <!-- Тип "submit" створює кнопку "Відправити", яка буде використовуватися для відправки форми на сервер. Текст на кнопці задається атрибутом "value". -->
-            </form>
+                        <input type="submit" value="Відправити">
+                        <!-- Тип "submit" створює кнопку "Відправити", яка буде використовуватися для відправки форми на сервер. Текст на кнопці задається атрибутом "value". -->
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </body>

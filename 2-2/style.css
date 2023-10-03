@@ -1,0 +1,67 @@
+﻿body {
+    margin: 0;
+    padding: 20px;
+}
+
+p {
+    margin: 0;
+}
+
+/* ФОРМАТУВАННЯ ШРИФТУ */
+.font-formatting li:first-child {
+    font-family: Arial, sans-serif;
+}
+
+.font-formatting li:nth-child(2) {
+    font-size: 18px;
+}
+
+.font-formatting li:last-child {
+    font-weight: 600;
+}
+
+/* ФОРМАТУВАННЯ ТЕКСТУ */
+.text-formatting li:first-child {
+    color: #0000FF;
+}
+
+.text-formatting li:nth-child(2) {
+    text-align: center;
+}
+
+.text-formatting li:last-child {
+    line-height: 1.5pt;
+}
+
+/* ВНУТРІШНІ ТА ЗВОНІШНІ ВІДСТУПИ */
+.lorem-padding {
+    padding: 20px;
+}
+
+.lorem-margin {
+    margin: 10px;
+}
+
+/* РАМКИ */
+.block {
+    width: 130px;
+    height: 70px;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+.dotted {
+    border-style: dotted;
+}
+
+.red {
+    border-color: red;
+}
+
+.width {
+    border-width: 2px;
+}
+
+.radius {
+    border-radius: 10px;
+}

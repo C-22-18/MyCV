@@ -1,0 +1,445 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Schedule</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="assets/images/icon.ico">
+    <meta name="author" content="Yaroslav Pustovoit">
+    <meta name="description" content="Naruto Uzumaki Academy site">
+    <meta name="keywords" content="Naruto, Uzumaki, schedule">
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@700;800&family=Montserrat:wght@300&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 30px;
+            line-height: 1.6;
+            word-spacing: 1.4px;
+            font-family: 'Open Sans', sans-serif;
+            color: #0f172a;
+            background-color: #f1f5f9;
+        }
+
+        main {
+            width: auto;
+            height: 100%;
+            display: grid;
+            grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+            grid-template-columns: repeat(8, minmax(100px, 1fr));
+            grid-gap: 3vh;
+        }
+
+        .item {
+            background-color: white;
+            font-weight: 700;
+            border-radius: 10px;
+        }
+
+        .icon {
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        img {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            grid-column: span 4;
+            grid-row: span 1;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 700;
+            text-align: center;
+            font-size: 22pt;
+        }
+
+        .reg {
+            width: auto;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            grid-column: span 2;
+            grid-row: span 3;
+        }
+
+        .reg-inner {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            width: 440px;
+            padding: 20px;
+        }
+
+        .reg-title {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        #signup {
+            margin: 0;
+            padding: 0;
+            border-bottom: 1px solid black;
+            display: inline;
+        }
+
+        input[type=text], select {
+            width: 100%;
+            padding: 10px 15px;
+            margin: 6px 0;
+            display: block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 500;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            background-color: black;
+            color: white;
+            padding: 14px 20px;
+            margin-top: 8px;
+            border: 3px solid black;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 700;
+            transition: 0.25s;
+        }
+
+            input[type=submit]:hover, input[type=submit]:focus {
+                background-color: white;
+                color: black;
+            }
+
+            input[type=submit]:active {
+                background-color: black;
+                color: white;
+            }
+
+        .contacts, .nav {
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 13pt;
+            list-style: none;
+        }
+
+        li {
+            font-weight: 400;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: black;
+        }
+
+        .title {
+            font-weight: 700;
+        }
+
+        .table {
+            grid-column: span 4;
+            grid-row: span 2;
+        }
+
+        table {
+            width: 100%;
+            height: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        td, th {
+            padding: 10px;
+            text-align: center;
+            hyphens: none;
+        }
+
+        td, th, tr p {
+            margin: 0;
+            font-size: 10pt;
+        }
+
+            td p:first-child {
+                margin-bottom: 5px;
+            }
+
+        th {
+            background-color: #fec157;
+            color: #fafafa;
+            font-family: 'Open Sans', Sans-serif;
+            font-weight: 200;
+            text-transform: uppercase;
+        }
+
+        tr {
+            width: 100%;
+            background-color: white;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .nar-pic1 {
+            margin: 0;
+            padding: 0;
+            height: 180px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            grid-column: span 3;
+        }
+
+        #pic1 {
+            margin: 70px 0 0 0;
+            object-fit: fill;
+        }
+
+        .nar-pic2 {
+            margin: 0;
+            padding: 0;
+            height: 180px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            grid-column: span 5;
+        }
+
+        #pic2 {
+            margin: 0;
+            object-fit: fill;
+        }   
+
+        #about {
+            margin: 0;
+            padding: 20px;
+            width: fit-content;
+            grid-column: span 4;
+        }
+
+        h2 {
+            margin: 0 0 5px 0;
+        }
+
+        p {
+            margin: 0;
+            font-weight: 400;
+        }
+
+        .nar-pic3 {
+            margin: 0;
+            padding: 0;
+            height: auto;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            grid-column: span 4;
+        }
+
+        #pic3 {
+            margin: 0;
+            width: 100%;
+            object-fit: fill;
+        }
+
+        .books {
+            margin: 0;
+            padding: 20px;
+            grid-column: span 8;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="item icon">
+            <img src="https://i.pinimg.com/564x/6b/cf/71/6bcf71e8d859845b257654bbc3bc0f1c.jpg" alt="literally me">
+        </div>
+        <div class="item text">
+            <h1>Welcome to the Naruto Uzumaki Academy!</h1>
+        </div>
+        <div class="item reg">
+            <div class="reg-inner">
+                <form action="#" method="POST" target="_blank">
+                    <!-- Атрибут action вказує, куди будуть відправлені дані після натискання кнопки "Відправити". -->
+                    <!-- Атрибут method вказує метод, яким буде відправлено дані на сервер. POST передає дані через запит HTTP. -->
+                    <!-- Атрибут target вказує, де відкривати результат обробки форми. Значення "_blank" буде відкривати результат у новому вікні чи вкладці браузера. -->
+
+                    <div class="reg-title">
+                        <p id="signup">Sign up</p>
+                    </div>
+
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Penis">
+                    <!-- Тег <label> використовується для створення мітки для поля введення. Атрибут for пов'язує мітку з полем введення за допомогою ідентифікатора поля. -->
+
+                    <label for="surname">Surname</label>
+                    <input type="text" id="surname" name="surname" placeholder="Dushilin">
+
+                    <label for="email">Email</label>
+                    <input type="text" id="email" name="email" placeholder="example@gmail.com" required>
+                    <!-- Тип "email" використовується для введення адреси електронної пошти і автоматично перевіряє формат введеного тексту. -->
+
+                    <label for="password">Password</label>
+                    <input type="text" id="password" name="password" placeholder="1-8 for sure">
+                    <!-- Тип "password" використовується для введення паролю. -->
+
+                    <label for="conformpassword">Confirm password</label>
+                    <input type="text" id="confpass" name="password" placeholder="same here">
+
+                    <input type="submit" value="Register">
+                    <!-- Тип "submit" створює кнопку "Відправити", яка буде використовуватися для відправки форми на сервер. Текст на кнопці задається атрибутом "value". -->
+                </form>
+            </div>
+        </div>
+        <div class="item table">
+            <table>
+                <tr>
+                    <th>TIME</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wendesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Saturday</th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p>8:30-9:15</p>
+                        <p>9:20-10:05</p>
+                    </td>
+                    <td>NH&P</td>
+                    <td>SET</td>
+                    <td>IEC</td>
+                    <td>ANT&G</td>
+                    <td>SSWT</td>
+                    <td>CYT</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p>10:25-11:10</p>
+                        <p>11:15-12:00</p>
+                    </td>
+                    <td>CCF</td>
+                    <td>TMMA</td>
+                    <td>EJP</td>
+                    <td>TSC</td>
+                    <td>MS</td>
+                    <td>SST</td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>12:20-13:05</p>
+                        <p>13:10-13:55</p>
+                    </td>
+                    <td>BNT</td>
+                    <td>ARD</td>
+                    <td>TEC</td>
+                    <td>SW</td>
+                    <td>MNB</td>
+                    <td>ADVN</td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>15:00-15:45</p>
+                        <p>15:50-16:35</p>
+                    </td>
+                    <td>INT</td>
+                    <td>SPN</td>
+                    <td>SAC</td>
+                    <td>IN&SP</td>
+                    <td>TCT</td>
+                    <td>FT</td>
+                </tr>
+            </table>
+        </div>
+        <div class="item contacts">
+            <ul>
+                <li class="title">Socials</li>
+                <li><a href="https://www.instagram.com/" target="_blank">Instagram</a></li>
+                <li><a href="https://youtu.be/dQw4w9WgXcQ?si=BZO-aXZvtmdd0Lwe" target="_blank">YouTube</a></li>
+                <li><a href="https://www.reddit.com/" target="_blank">Reddit</a></li>
+            </ul>
+        </div>
+        <div class="item nav">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li>Books</li>
+                <li>Courses</li>
+                <li>Events</li>
+            </ul>
+        </div>
+        <div class="item nar-pic1">
+            <img id="pic1" src="https://i.pinimg.com/originals/28/3d/ee/283dee4a3d9fab2c8436c96a7fdebbc9.jpg" alt="naruto" />
+        </div>
+        <div class="item nar-pic2">
+            <img id="pic2" src="https://i.pinimg.com/originals/af/e9/be/afe9be1c021cdab19f95d0b402d8b049.jpg" alt="naruto" />
+        </div>
+        <div class="item" id="about">
+            <h2>About</h2>
+            <p>
+                At the Naruto Uzumaki Academy, we are dedicated to fostering the growth and development
+                of aspiring ninjas in the Hidden Leaf Village and beyond. Our academy stands as a
+                testament to the enduring spirit of Naruto Uzumaki, the Seventh Hokage of Konohagakure,
+                and a legendary figure in the ninja world.
+            </p>
+            <p>
+                Our mission is to train a new generation of ninjas who will carry forward Naruto's legacy of
+                determination, loyalty, and unwavering courage. Whether you're a young ninja-in-training, a
+                seasoned shinobi, or simply a fan of the Naruto series, our academy welcomes individuals of
+                all ages and backgrounds who share a passion for the ninja way.
+            </p>
+        </div>
+        <div class="item nar-pic3">
+            <img id="pic3" src="https://i.pinimg.com/564x/10/0a/2e/100a2ed7610e579f76346cc2c6dec39e.jpg" alt="naruto"/>
+        </div>
+        <div class="item books">
+            <p>
+                At the Naruto Uzumaki Academy, we are dedicated to fostering the growth and development
+                of aspiring ninjas in the Hidden Leaf Village and beyond. Our academy stands as a
+                testament to the enduring spirit of Naruto Uzumaki, the Seventh Hokage of Konohagakure,
+                and a legendary figure in the ninja world.
+            </p>
+        </div>
+        <div class="item sth">1</div>
+        <div class="item sth">1</div>
+    </main>
+</body>
+</html>

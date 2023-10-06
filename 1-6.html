@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -102,7 +102,7 @@
             display: inline;
         }
 
-        input[type=text], select {
+        input[type=text], input[type=email], input[type=password] {
             width: 100%;
             padding: 10px 15px;
             margin: 6px 0;
@@ -137,6 +137,10 @@
                 background-color: black;
                 color: white;
             }
+
+        form span {
+            color: red;
+        }
 
         .contacts, .nav {
             margin: 0;
@@ -248,7 +252,7 @@
         #about {
             margin: 0;
             padding: 20px;
-            width: fit-content;
+            height: fit-content;
             grid-column: span 4;
         }
 
@@ -264,7 +268,6 @@
         .nar-pic3 {
             margin: 0;
             padding: 0;
-            height: auto;
             overflow: hidden;
             display: flex;
             justify-content: center;
@@ -274,7 +277,6 @@
 
         #pic3 {
             margin: 0;
-            width: 100%;
             object-fit: fill;
         }
 
@@ -305,25 +307,27 @@
                     </div>
 
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="name" placeholder="Penis">
+                    <input type="text" id="name" name="name" placeholder="Penis" required>
                     <!-- Тег <label> використовується для створення мітки для поля введення. Атрибут for пов'язує мітку з полем введення за допомогою ідентифікатора поля. -->
 
                     <label for="surname">Surname</label>
                     <input type="text" id="surname" name="surname" placeholder="Dushilin">
 
                     <label for="email">Email</label>
-                    <input type="text" id="email" name="email" placeholder="example@gmail.com" required>
+                    <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
                     <!-- Тип "email" використовується для введення адреси електронної пошти і автоматично перевіряє формат введеного тексту. -->
 
                     <label for="password">Password</label>
-                    <input type="text" id="password" name="password" placeholder="1-8 for sure">
+                    <input type="password" id="password" name="confirmpassword" placeholder="1-8 for sure" required>
                     <!-- Тип "password" використовується для введення паролю. -->
 
                     <label for="conformpassword">Confirm password</label>
-                    <input type="text" id="confpass" name="password" placeholder="same here">
+                    <input type="password" id="confpass" name="password" placeholder="same here" required>
 
                     <input type="submit" value="Register">
                     <!-- Тип "submit" створює кнопку "Відправити", яка буде використовуватися для відправки форми на сервер. Текст на кнопці задається атрибутом "value". -->
+
+                    <span id="passwordError" class="error"></span>
                 </form>
             </div>
         </div>
@@ -428,7 +432,7 @@
             </p>
         </div>
         <div class="item nar-pic3">
-            <img id="pic3" src="https://i.pinimg.com/564x/10/0a/2e/100a2ed7610e579f76346cc2c6dec39e.jpg" alt="naruto"/>
+            <img id="pic3" src="https://i.pinimg.com/564x/10/0a/2e/100a2ed7610e579f76346cc2c6dec39e.jpg" alt="naruto" />
         </div>
         <div class="item books">
             <p>
@@ -441,5 +445,23 @@
         <div class="item sth">1</div>
         <div class="item sth">1</div>
     </main>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var passwordInput = document.getElementById("password");
+        var confirmInput = document.getElementById("confpass");
+        var passwordError = document.getElementById("passwordError");
+
+        confirmInput.addEventListener("input", function() {
+            var password = passwordInput.value;
+            var confirmPassword = confirmInput.value;
+
+            if (password === confirmPassword) {
+                passwordError.textContent = "";
+            } else {
+                passwordError.textContent = "Passwords do not match.";
+            }
+        });
+    });
+    </script>
 </body>
 </html>

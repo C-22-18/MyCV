@@ -1,0 +1,83 @@
+﻿/* Border-box для всіх блоків */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Кольори */
+:root {
+    --clr-dark: #070a12;
+    --clr-light: #f1f5f9;
+    --clr-accent: #e11d48;
+    --clr-lightRose: #fb7185;
+    --clr-green: #4ade80;
+    --clr-sky: #38bdf8;
+    --clr-pink: #f472b6;
+    --clr-violet: #a78bfa;
+    --clr-yellow: #facc15;
+}
+
+/* Стилізація фону, шрифту, головного і підконтейнерів */
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    word-spacing: 1.4px;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--clr-light);
+    color: var(--clr-dark);
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 100px;
+    grid-template-columns: repeat(4, 100px);
+    grid-gap: 1em;
+}
+
+/* Стилізація блоків */
+.item {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    color: var(--clr-light);
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.static {
+    background-color: var(--clr-lightRose);
+    position: static;
+}
+
+.relative {
+    background-color: var(--clr-sky);
+    position: relative;
+    top: 100px;
+    left: 100px;
+}
+
+.absolute {
+    background-color: var(--clr-yellow);
+    position: absolute;
+    top: 400px;
+    right: 830px;
+    z-index: 1;
+}
+
+.fixed {
+    background-color: var(--clr-violet);
+    position: fixed;
+    top: 100px;
+    left: 50px;
+    z-index: 2;
+}

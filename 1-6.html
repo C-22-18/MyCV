@@ -53,6 +53,7 @@
             margin: 0;
             padding: 0;
             width: 100%;
+            border-radius: 4px;
         }
 
         .text {
@@ -121,7 +122,7 @@
             padding: 14px 20px;
             margin-top: 8px;
             border: 3px solid black;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
             font-family: 'Open Sans', sans-serif;
             font-weight: 700;
@@ -136,6 +137,13 @@
             input[type=submit]:active {
                 background-color: black;
                 color: white;
+            }
+
+            input[type=submit]:disabled {
+                background-color: red;
+                border-color: red;
+                color: white;
+
             }
 
         form span {
@@ -166,7 +174,7 @@
             text-decoration: none;
         }
 
-        a:visited {
+        a:link, a:visited {
             color: black;
         }
 
@@ -192,6 +200,7 @@
             padding: 10px;
             text-align: center;
             hyphens: none;
+            position: relative;
         }
 
         td, th, tr p {
@@ -215,6 +224,32 @@
             width: 100%;
             background-color: white;
             font-family: 'Montserrat', sans-serif;
+        }
+
+        .hoverable {
+            cursor: pointer;
+        }
+
+        td .extra {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 0 4px;
+            color: white;
+            background-color: black;
+            width: 100%;
+            height: 100%;
+            font-size: 9pt;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.1s;
+        }
+
+        td:hover .extra {
+            opacity: 1;
         }
 
         .nar-pic1 {
@@ -265,9 +300,10 @@
             font-weight: 400;
         }
 
-        .nar-pic3 {
+        #nar-pic3 {
             margin: 0;
             padding: 0;
+            height: auto;
             overflow: hidden;
             display: flex;
             justify-content: center;
@@ -318,16 +354,14 @@
                     <!-- Тип "email" використовується для введення адреси електронної пошти і автоматично перевіряє формат введеного тексту. -->
 
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="confirmpassword" placeholder="1-8 for sure" required>
+                    <input type="password" id="password" name="password" placeholder="1-8 for sure" required>
                     <!-- Тип "password" використовується для введення паролю. -->
 
-                    <label for="conformpassword">Confirm password</label>
+                    <label for="confirmpassword">Confirm password</label>
                     <input type="password" id="confpass" name="password" placeholder="same here" required>
 
-                    <input type="submit" value="Register">
+                    <input type="submit" id="submit" value="Register">
                     <!-- Тип "submit" створює кнопку "Відправити", яка буде використовуватися для відправки форми на сервер. Текст на кнопці задається атрибутом "value". -->
-
-                    <span id="passwordError" class="error"></span>
                 </form>
             </div>
         </div>
@@ -342,18 +376,29 @@
                     <th>Friday</th>
                     <th>Saturday</th>
                 </tr>
-
                 <tr>
                     <td>
                         <p>8:30-9:15</p>
                         <p>9:20-10:05</p>
                     </td>
-                    <td>NH&P</td>
-                    <td>SET</td>
-                    <td>IEC</td>
-                    <td>ANT&G</td>
-                    <td>SSWT</td>
-                    <td>CYT</td>
+                    <td class="hoverable">NH&P
+                        <div class="extra">Ninja History and Philosophy</div>
+                    </td>
+                    <td class="hoverable">SET
+                        <div class="extra">Strength and Endurance Training</div>
+                    </td>
+                    <td class="hoverable">IEC
+                        <div class="extra">Introduction to Elemental Chakra</div>
+                    </td>
+                    <td class="hoverable">ANT&G
+                        <div class="extra">Advanced Ninjutsu and Genjutsu</div>
+                    </td>
+                    <td class="hoverable">SSWT
+                        <div class="extra">Survival Skills and Wilderness Training</div>
+                    </td>
+                    <td class="hoverable">ST
+                        <div class="extra">Specialized Training</div>
+                    </td>
                 </tr>
 
                 <tr>
@@ -361,36 +406,72 @@
                         <p>10:25-11:10</p>
                         <p>11:15-12:00</p>
                     </td>
-                    <td>CCF</td>
-                    <td>TMMA</td>
-                    <td>EJP</td>
-                    <td>TSC</td>
-                    <td>MS</td>
-                    <td>SST</td>
+                    <td class="hoverable">CCF
+                        <div class="extra">Chakra Control Fundamentals</div>
+                    </td>
+                    <td class="hoverable">TMMA
+                        <div class="extra">Taijutsu and Martial Arts</div>
+                    </td>
+                    <td class="hoverable">EJP
+                        <div class="extra">Elemental Jutsu Practice</div>
+                    </td>
+                    <td class="hoverable">TSC
+                        <div class="extra">Team Strategy and Coordination</div>
+                    </td>
+                    <td class="hoverable">MS
+                        <div class="extra">Mission Simulations</div>
+                    </td>
+                    <td class="hoverable">SST
+                        <div class="extra">Specialty- Specific Training</div>
+                    </td>
                 </tr>
                 <tr>
                     <td>
                         <p>12:20-13:05</p>
                         <p>13:10-13:55</p>
                     </td>
-                    <td>BNT</td>
-                    <td>ARD</td>
-                    <td>TEC</td>
-                    <td>SW</td>
-                    <td>MNB</td>
-                    <td>ADVN</td>
+                    <td class="hoverable">BNT
+                        <div class="extra">Basic Ninjutsu Techniques</div>
+                    </td>
+                    <td class="hoverable">ARD
+                        <div class="extra">Agility and Reflex Development</div>
+                    </td>
+                    <td class="hoverable">TEC
+                        <div class="extra">Team-Based Elemental Challenges</div>
+                    </td>
+                    <td class="hoverable">SW
+                        <div class="extra">Shurikenjutsu and Weaponry</div>
+                    </td>
+                    <td class="hoverable">MNB
+                        <div class="extra">Medical Ninjutsu Basics</div>
+                    </td>
+                    <td class="hoverable">ADVN
+                        <div class="extra">Advanced Ninja Tactics</div>
+                    </td>
                 </tr>
                 <tr>
                     <td>
                         <p>15:00-15:45</p>
                         <p>15:50-16:35</p>
                     </td>
-                    <td>INT</td>
-                    <td>SPN</td>
-                    <td>SAC</td>
-                    <td>IN&SP</td>
-                    <td>TCT</td>
-                    <td>FT</td>
+                    <td class="hoverable">INT
+                        <div class="extra">Introduction to Ninja Tools</div>
+                    </td>
+                    <td class="hoverable">SPN
+                        <div class="extra">Speed and Precision Training</div>
+                    </td>
+                    <td class="hoverable">SAC
+                        <div class="extra">Sealing Arts and Techniques</div>
+                    </td>
+                    <td class="hoverable">IN&SP
+                        <div class="extra">Infiltration and Stealth Practices</div>
+                    </td>
+                    <td class="hoverable">TCT
+                        <div class="extra">Trap Creation and Traps</div>
+                    </td>
+                    <td class="hoverable">FT
+                        <div class="extra">Free Time</div>
+                    </td>
                 </tr>
             </table>
         </div>
@@ -431,7 +512,7 @@
                 all ages and backgrounds who share a passion for the ninja way.
             </p>
         </div>
-        <div class="item nar-pic3">
+        <div class="item" id="nar-pic3">
             <img id="pic3" src="https://i.pinimg.com/564x/10/0a/2e/100a2ed7610e579f76346cc2c6dec39e.jpg" alt="naruto" />
         </div>
         <div class="item books">
@@ -446,22 +527,55 @@
         <div class="item sth">1</div>
     </main>
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var passwordInput = document.getElementById("password");
-        var confirmInput = document.getElementById("confpass");
-        var passwordError = document.getElementById("passwordError");
+        const tdElements = document.querySelectorAll('.hoverable');
 
-        confirmInput.addEventListener("input", function() {
-            var password = passwordInput.value;
-            var confirmPassword = confirmInput.value;
+        tdElements.forEach(td => {
+            td.addEventListener('mouseover', () => {
+                td.querySelector('.extra').style.opacity = 1;
+            });
 
-            if (password === confirmPassword) {
-                passwordError.textContent = "";
-            } else {
-                passwordError.textContent = "Passwords do not match.";
-            }
+            td.addEventListener('mouseout', () => {
+                td.querySelector('.extra').style.opacity = 0;
+            });
         });
-    });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var passwordInput = document.getElementById("password");
+            var confirmInput = document.getElementById("confpass");
+            var submitButton = document.getElementById("submit");
+
+            confirmInput.addEventListener("input", function () {
+                var password = passwordInput.value;
+                var confirmPassword = confirmInput.value;
+
+                if (password === confirmPassword) {
+                    submitButton.setAttribute("value", "Submit")
+                    submitButton.removeAttribute("disabled");
+                    submitButton.style.backgroundColor = "black";
+
+                    submitButton.addEventListener("mouseenter", function () {
+                        submitButton.style.color = "black";
+                        submitButton.style.backgroundColor = "white";
+                    });
+
+                    submitButton.addEventListener("mouseleave", function () {
+                        submitButton.style.color = "white";
+                        submitButton.style.backgroundColor = "black";
+                    });
+                } else {
+                    submitButton.setAttribute("value", "Passwords don't match")
+                    submitButton.setAttribute("disabled", "true");
+                }
+            });
+        });
+
+        window.addEventListener('load', function () {
+            var leftDiv = document.getElementById('about');
+            var rightDiv = document.getElementById('nar-pic3');
+
+            // Set the height of the right div to match the left div's height
+            rightDiv.style.height = leftDiv.offsetHeight + 'px';
+        });
     </script>
 </body>
 </html>

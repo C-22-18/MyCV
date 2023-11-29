@@ -1,0 +1,54 @@
+﻿/* Загальні стилі */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Стилі для вертикальної навігації */
+.vertical-nav {
+    width: 200px;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow: auto;
+}
+
+    .vertical-nav a {
+        padding: 16px;
+        text-decoration: none;
+        color: #fff;
+        display: block;
+    }
+
+        .vertical-nav a:hover {
+            background-color: #555;
+        }
+
+/* Стилі для горизонтальної навігації */
+.horizontal-nav {
+    background-color: #333;
+    overflow: hidden;
+}
+
+    .horizontal-nav a {
+        float: left;
+        display: block;
+        color: #fff;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+        .horizontal-nav a:hover {
+            background-color: #555;
+        }
+
+/* Стилі для контенту сайту */
+.content {
+    margin-left: 220px;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}

@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        /* Додамо стилі для кращого вигляду */
+        myDiv {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="myDiv" class="myDiv">
+        <p id="myP">Привіт, світ!</p>
+        <ul id="myList">
+            <li>Елемент 1</li>
+            <li>Елемент 2</li>
+        </ul>
+        <a id="myLink" href="#">Моє посилання</a>
+    </div>
+    <script>
+        // Вибір елементу за ID
+        var myDiv = document.getElementById("myDiv");
+        // Зміна стилю елементу
+        myDiv.style.backgroundColor = "yellow";
+
+        // Вибір елементу за тегом
+        var myList = document.getElementsByTagName("ul")[0];
+        // Зміна тексту елементу
+        myList.innerHTML = "<li>Новий елемент</li>";
+
+        // Вибір елементу за класом
+        var myP = document.getElementsByClassName("myDiv")[0].children[0];
+        // Зміна властивості елементу
+        myP.innerText = "Привіт, JavaScript!";
+
+        // Навігація по дереву DOM
+        var myLink = myDiv.children[2];
+        console.log(myLink.parentNode); // Виводить <div id="myDiv" class="myDiv">...</div>
+
+        // Додавання обробника подій
+        myLink.addEventListener("click", function (event) {
+            event.preventDefault();
+            alert("Посилання було натиснуто!");
+        });
+    </script>
+</body>
+</html>
